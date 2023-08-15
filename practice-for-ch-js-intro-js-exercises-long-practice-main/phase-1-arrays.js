@@ -33,9 +33,9 @@ console.log([-1, 0, 2, -2, 1].twoSum());
 
 Array.prototype.transpose = function(){
     let result = [];
-    
+
     this.forEach((ele1, idx1)=>{
-        let subarr = []
+        let subarr = [];
         this.forEach((ele2, idx2) => {
             subarr.push(this[idx2][idx1]);
         });
