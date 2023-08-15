@@ -20,8 +20,8 @@ Array.prototype.twoSum = function(){
                 if (ele1+ele2===0){
                    let pair = [idx1,idx2];
                    result.push(pair);
-                }
-            }
+                };
+            };
 
         });
     });
