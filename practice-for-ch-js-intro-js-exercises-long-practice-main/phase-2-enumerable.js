@@ -50,3 +50,23 @@ Array.prototype.myMap = function(callback){
 };
 
 console.log([2, 3, 4, 5].myMap(cb));
+
+const acc = function(num){
+    val += num
+};
+
+Array.prototype.myReduce = function(cb, val=0){
+    val ||= this[0]
+    let arr = [];
+    if (val === this[0]){
+        arr = this.slice(1);
+    }
+    else{
+        arr = this;
+    };
+
+    arr.myEach(cb);
+    return val;
+}
+
+console.log([2, 3, 4, 5].myReduce(acc));
