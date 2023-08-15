@@ -1,6 +1,6 @@
-const cb = function(num) {
-    return ++num;
- };
+// const cb = function(num) {
+//     return ++num;
+//  };
 
 const newCallback = function(arr, num){
     arr.push(num);
@@ -12,7 +12,7 @@ Array.prototype.myEach = function(func){
     };
 };
 
-[0, 1, 2].myEach(cb);
+// [0, 1, 2].myEach(cb);
 
 // class Array
 //     def my_each(prc)
@@ -49,9 +49,9 @@ Array.prototype.myMap = function(callback){
     return result;
 };
 
-console.log([2, 3, 4, 5].myMap(cb));
+// console.log([2, 3, 4, 5].myMap(cb));
 
-const acc = function(num){
+const acc = function(val){
     val += num
 };
 
@@ -64,9 +64,16 @@ Array.prototype.myReduce = function(cb, val=0){
     else{
         arr = this;
     };
+    const func = function(num){
+        val = cb(val,num);
+    };
+    arr.myEach(func);
 
-    arr.myEach(cb);
     return val;
 }
 
-console.log([2, 3, 4, 5].myReduce(acc));
+console.log([2, 3, 4, 5].myReduce(function(acc, el) {
+    return acc + el;
+  }));
+
+
